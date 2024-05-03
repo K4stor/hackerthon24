@@ -7,8 +7,8 @@ Servo directionServo;
 
 SoftwareSerial BTSerial (2,3);
 
-int speedPin = 10;
-int directionPin = 9;
+int speedPin = 9;
+int directionPin = 10;
 
 void setup() {
   Serial.begin(9600);
@@ -27,8 +27,8 @@ void loop() {
     char speed = 0b00001111 & value;
     char direction = (0b11110000 & value) >> 4;
 
-    unsigned char mappedDirection = map(direction, 0, 127, 40, 140); 
-    unsigned char mappedSpeed = map(speed, 0, 127, 0, 180); 
+    unsigned char mappedDirection = map(direction, 0, 127, 135, 35); 
+    unsigned char mappedSpeed = map(speed, 0, 127, 20, 160); 
     
     speedServo.write(mappedSpeed);
     directionServo.write(mappedDirection);
