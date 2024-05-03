@@ -27,8 +27,8 @@ void loop() {
     char speed = 0b00001111 & value;
     char direction = (0b11110000 & value) >> 4;
 
-    unsigned char mappedDirection = map(direction, 0, 127, 135, 35); 
-    unsigned char mappedSpeed = map(speed, 0, 127, 20, 160); 
+    unsigned char mappedDirection = map(direction, 0, 15, 135, 35); 
+    unsigned char mappedSpeed = map(speed, 0, 15, 20, 160); 
     
     speedServo.write(mappedSpeed);
     directionServo.write(mappedDirection);
